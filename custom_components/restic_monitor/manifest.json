@@ -1,0 +1,12 @@
+{
+  "domain": "restic_monitor",
+  "name": "Restic Monitor",
+  "codeowners": ["@ungaul"],
+  "config_flow": true,
+  "documentation": "https://github.com/ungaul/ha-restic-monitor",
+  "integration_type": "service",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/ungaul/ha-restic-monitor/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

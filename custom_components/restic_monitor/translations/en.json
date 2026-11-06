@@ -1,0 +1,44 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Restic repositories",
+        "description": "Folder where your restic repositories are mounted, as seen by Home Assistant (for Docker, the target of the bind mount). Every repository found in it gets its own sensor.",
+        "data": {
+          "path": "Folder",
+          "scan_interval_hours": "Refresh every"
+        },
+        "data_description": {
+          "path": "For example /snapshots, containing one restic repository per sub-folder (or the repository itself).",
+          "scan_interval_hours": "How often the repositories are read, in hours."
+        }
+      }
+    },
+    "error": {
+      "no_repository_found": "No restic repository found in this folder. Is the bind mount in place (and the disk mounted)?"
+    },
+    "abort": {
+      "already_configured": "This folder is already configured."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "size": {
+        "name": "Repository size"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Restic repositories",
+        "data": {
+          "scan_interval_hours": "Refresh every"
+        },
+        "data_description": {
+          "scan_interval_hours": "How often the repositories are read, in hours."
+        }
+      }
+    }
+  }
+}
