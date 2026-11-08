@@ -43,17 +43,28 @@ days_to_show: 60
 ```
 
 ## Alert
-
+You can make an automation to warn if no snapshot ran (here on a nightly run) like so:
 ```yaml
+alias: Restic Check
+description: ''
 triggers:
   - trigger: time
-    at: "08:00:00"
+    at: '05:00:00'
 conditions:
-  - condition: state
-    entity_id: sensor.thinkpad_repository_size
-    state: unknown
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.home_archserver_repository_size
+        state: unknown
+      - condition: state
+        entity_id: sensor.home_nat_repository_size
+        state: unknown
+      - condition: state
+        entity_id: sensor.home_thinkpad_repository_size
+        state: unknown
 actions:
   - action: notify.notify
     data:
       message: No restic backup today
+mode: single
 ```
