@@ -16,19 +16,6 @@ volumes:
 
 ![integration](./assets/integration.png)
 
-No password and no restic binary needed.
-
-## Sensor
-
-`sensor.<repository>_repository_size`
-
-| State | Meaning |
-|---|---|
-| size | a snapshot was written today |
-| no value (`unknown`) | no snapshot today, or repository unreadable |
-
-Attributes: `last_snapshot`, `snapshot_count`, `error`. Values are refreshed at the chosen interval.
-
 ## Graph
 
 ![graph](./assets/graph.png)
@@ -53,12 +40,6 @@ triggers:
 conditions:
   - condition: or
     conditions:
-      - condition: state
-        entity_id: sensor.home_archserver_repository_size
-        state: unknown
-      - condition: state
-        entity_id: sensor.home_nat_repository_size
-        state: unknown
       - condition: state
         entity_id: sensor.home_thinkpad_repository_size
         state: unknown
